@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mi pagina</title>
+  </head>
+  <body>
+
+  {% extends "layout.html" %}
+
+  {% block heading %}
+  Primera pagina
+  {% endblock %}
+
+  {% block body %}
+    <h2>NOTAS</h2>
+  <ul>
+    {% for note in notes %}
+    <li>{{ note }}</li>
+    {% endfor%}
+  </ul>
+
+  <form action="{{ url_for('index') }}" method="post">
+    <input type="text" name="note" placeholder="Escriba una nota">
+    <button>Enviar Nota</button>
+  </form>
+
+  {% endblock %}
+
+  </body>
+</html>
